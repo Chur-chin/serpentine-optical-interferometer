@@ -1,0 +1,22 @@
+## Representative Observations
+
+### Input Position (4 representative images)
+- Strong angular dependence observed.
+- Maximum fringe intensity near **-10°**.
+- Clear multiple linear fringes in extreme near-field.
+
+### Output Position (4 representative images)
+- Maximum fringe intensity near **+45°**.
+- Dramatic change in number and contrast of lines depending on rotation angle.
+
+### Videos
+
+**Video 1: Double Spot Blinking** (`videos/double_spot.mp4`, 4s)  
+When an additional polarizing film is shaken in front of the output assembly, a secondary circular spot appears and disappears repeatedly. This demonstrates polarization-dependent transmission and multiple reflections.
+
+**Video 2: Internal Interference Dynamics** (`videos/circular_interference.mp4`, 11s)  
+Near 0° at output position, small angular movements cause continuous evolution of interference patterns inside the main circular spot, showing high sensitivity to alignment.
+
+---
+
+**Note**: Full raw image sets are archived in `/images/raw/` folder. Representative selections are used in this README for clarity.
