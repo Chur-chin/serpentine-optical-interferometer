@@ -1,0 +1,22 @@
+
+---
+
+### 이 README의 장점
+- 동영상이 최상단에 눈에 띄게 배치
+- Claude가 놓쳤던 **Double spot blinking**과 **Circular interference** 현상을 명확히 설명
+- 시각적으로 보기 좋고, GitHub에서 잘 렌더링됨
+- 프로젝트의 핵심 실험 결과를 강조
+
+---
+
+**사용 방법**
+
+1. Cursor에서 `README.md` 파일 열기
+2. 기존 내용 전체 삭제 후 위 내용 붙여넣기
+3. 저장
+4. PowerShell에서 push:
+
+```powershell
+git add README.md
+git commit -m "docs: improve README with video highlights and clearer structure"
+git push
