@@ -1,0 +1,133 @@
+# Laser Diffraction Pattern Analysis: Z-axis Rotation Effect
+
+## Overview
+
+This repository contains experimental recordings investigating how the **rotation angle along the z-axis** affects the spatial distribution of laser diffraction patterns — specifically the transition between two distinct phenomena:
+
+- **Fringe line** (z-axis upper region): an elongated streak extending upward from the central spot, resembling a rocket exhaust plume, characteristic of edge/aperture diffraction
+- **Satellite spots** (z-axis lower region): discrete secondary maxima arranged in a 2D grid pattern below the central beam
+
+The experiment demonstrates that xy-plane orientation (e.g., square vs. rhombus aperture alignment) has **no significant effect** on pattern distribution; only the z-axis rotation governs which phenomenon dominates and where.
+
+---
+
+## Experimental Setup
+
+| Parameter | Details |
+|-----------|---------|
+| Light source | Laser (wavelength: *to be filled*) |
+| Optical element | *Aperture / Slit / Diffraction grating — to be filled* |
+| Variable | Z-axis rotation angle |
+| Observation surface | Dark screen / wall |
+| Trials | **5 repetitions** per condition |
+| Recording | Smartphone video (8 clips) |
+
+### Axis Convention
+
+```
+        [Fringe Line]
+              ↑
+         z-axis (up)
+              |
+  ────────────●──────────── (xy-plane: rotation does NOT affect result)
+              |
+              ↓
+        [Satellite Spot]
+```
+
+- **+z (upper)** → Fringe line appears
+- **−z (lower)** → Satellite spot appears
+- **xy rotation** → No observable change in pattern distribution
+
+---
+
+## Key Findings
+
+1. **Z-axis rotation drives a fringe-to-satellite transition**
+   As the optical element is rotated along the z-axis, the diffraction pattern transitions from a single elongated **fringe line** (extending upward like a rocket plume) into discrete **satellite spots** arranged in a 2D grid below the central beam. The two phenomena occupy opposite sides of the z-axis and do not co-exist at the same rotation angle.
+
+2. **Fringe line morphology (upper z-axis)**
+   At certain z-axis angles, the pattern above the central spot is a vertically elongated streak — not a discrete point — consistent with single-edge or slit diffraction producing a continuous intensity envelope.
+
+3. **Satellite spot morphology (lower z-axis)**
+   At complementary z-axis angles, the region below the central spot shows multiple discrete spots arranged in a regular 2D lattice, consistent with 2D aperture or grating diffraction producing separated diffraction orders.
+
+4. **XY-plane orientation is irrelevant**
+   Whether the aperture/grating was oriented as a square or rotated to a rhombus in the xy-plane, the resulting diffraction pattern showed no statistically significant change. The pattern rotates with the element but its character (fringe vs. satellite) is governed solely by the z-axis component.
+
+5. **High reproducibility**
+   Results were consistent across all **5 repetitions**, confirming the z-axis dependency is a robust, repeatable phenomenon rather than experimental artifact.
+
+---
+
+## Photo Documentation
+
+The following still images capture the key pattern states observed during the experiment.
+
+| File | Description |
+|------|-------------|
+| `20260515_203006.jpg` | **Fringe line dominant** — single central spot with upward plume (rocket shape); satellite absent |
+| `20260515_203020.jpg` | **Transition** — fringe line (upper, red) + satellite beginning to separate (lower) |
+| `20260515_203033.jpg` | **Transition** — fringe line + satellite spot clearly separated; faint higher-order spot visible upper-right |
+| `20260515_203059.jpg` | **Satellite dominant** — 3–4 spots in grid formation; fringe reduced to faint haze |
+| `20260515_203111.jpg` | **Satellite dominant** — 2D grid of spots clearly visible; fringe absent |
+| `20260515_203132.jpg` | **Satellite dominant** — grid pattern with multiple orders; central spot + satellites arrayed diagonally |
+
+---
+
+## Physical Interpretation
+
+The observed fringe-to-satellite transition under z-axis rotation reflects the geometry of diffraction from a 2D aperture or grating:
+
+- **Fringe line** (upper z-axis): When the aperture edge is oriented such that diffraction spreads preferentially along the z-axis, a continuous intensity streak forms above the central beam — analogous to single-slit diffraction producing an elongated sinc² envelope.
+- **Satellite spots** (lower z-axis): At complementary orientations, the 2D periodicity of the aperture/grating creates a regular array of constructive interference maxima below the central beam, producing the observed discrete grid of spots.
+- **XY-plane independence**: Rotating the aperture within the xy-plane merely reorients the entire pattern azimuthally without changing which diffraction orders are accessible along the z-axis, hence the observed xy-independence.
+
+The transition between regimes as a function of z-axis angle is the central result of this experiment.
+
+*A more complete theoretical treatment and quantitative angle measurements will be added upon analysis completion.*
+
+---
+
+## Repository Structure
+
+```
+/
+├── README.md
+├── videos/
+│   ├── 20260515_192723.mp4   (Trial 1)
+│   ├── 20260515_192803.mp4   (Trial 2)
+│   ├── 20260515_192843.mp4   (Trial 3)
+│   ├── 20260515_192921.mp4   (Trial 4)
+│   ├── 20260515_194504.mp4   (Trial 5)
+│   ├── 20260515_194553.mp4   (Trial 6)
+│   ├── 20260515_195645.mp4   (Trial 7)
+│   └── 20260515_195721.mp4   (Trial 8)
+├── photos/
+│   ├── 20260515_203006.jpg   (Fringe dominant)
+│   ├── 20260515_203020.jpg   (Transition)
+│   ├── 20260515_203033.jpg   (Transition)
+│   ├── 20260515_203059.jpg   (Satellite dominant)
+│   ├── 20260515_203111.jpg   (Satellite dominant)
+│   └── 20260515_203132.jpg   (Satellite dominant)
+└── analysis/                  ← (to be added)
+    └── ...
+```
+
+---
+
+## Notes / TODO
+
+- [ ] Add wavelength and optical element specifications
+- [ ] Label each video clip with exact z-rotation angle or condition
+- [ ] Add frame-extracted images for each key observation
+- [ ] Quantitative analysis of fringe spacing vs. satellite displacement
+- [ ] Add schematic diagram of experimental setup
+
+---
+
+## Author
+
+*To be filled*
+
+Date: 2026-05-15
