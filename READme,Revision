@@ -1,0 +1,44 @@
+# Serpentine Optical Interferometer
+
+**DIY 세르펜틴(링) 광학 간섭계** — Savart형 빔 분할 + 출사 빔이 한 점으로 되돌아오는 **세르펜틴 레이아웃**을 구현한 실험 프로젝트입니다.
+
+주요 실험 결과로 **Holoscopic Boundary** 현상을 관찰하고 기록하고 있습니다.
+
+---
+
+## 🎥 주요 실험 영상 (Holoscopic Boundary)
+
+### Video 1 — Double Spot Blinking
+[![Video 1](https://img.shields.io/badge/Video_1-Double_Spot_Blinking-blue)](https://github.com/Chur-chin/serpentine-optical-interferometer/blob/main/media/holoscopic-boundary/videos/20260513_194532.mp4)
+
+- **현상**: 두 개의 스팟이 동시에 나타났다 사라지며 깜빡이는 현상
+- **의의**: Holoscopic boundary 영역에서 관찰되는 특징적인 간섭 패턴
+
+### Video 2 — Circular Interference
+[![Video 2](https://img.shields.io/badge/Video_2-Circular_Interference-blue)](https://github.com/Chur-chin/serpentine-optical-interferometer/blob/main/media/holoscopic-boundary/videos/circular_interference.mp4)
+
+- **현상**: 출력 빔이 거의 0°에 가까울 때 나타나는 원형 간섭 무늬
+- **의의**: 세르펜틴 레이아웃의 폐루프 특성을 잘 보여주는 결과
+
+**전체 영상 폴더**: [media/holoscopic-boundary/videos/](https://github.com/Chur-chin/serpentine-optical-interferometer/tree/main/media/holoscopic-boundary/videos)
+
+---
+
+## 📐 프로젝트 개요
+
+- **레이아웃**: Savart plate 기반 빔 분할 + Serpentine (링형) 광로
+- **특징**: 출사광이 입력 위치로 되돌아오는 closed-loop 설계
+- **목적**: 미세 각도/변위 감지, Holoscopic-like interference 현상 탐구
+
+---
+
+## 📁 Repository 구조
+
+```bash
+├── docs/                  # 상세 실험 노트 및 문서
+├── media/
+│   ├── holoscopic-boundary/     # ★ 주요 실험 결과
+│   ├── laser-diffraction-z-rotation/
+│   └── ...
+├── scripts/               # repo 정리용 PowerShell 스크립트
+└── README.md
