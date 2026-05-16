@@ -89,6 +89,31 @@ if (Test-Path -LiteralPath $mp4one) {
     Git-MvIfExists -Root $root -SrcRel $_ -DstRel "docs/archive/legacy-root/$_" | Out-Null
 }
 
+# May 16 z-rotation session (uploaded to repo root)
+Get-ChildItem -Path $root -Filter "20260516_*.mp4" -File -ErrorAction SilentlyContinue |
+    Where-Object { $_.Name -ne "20260516_181439_new.mp4" } |
+    ForEach-Object {
+        Git-MvIfExists -Root $root -SrcRel $_.Name `
+            -DstRel "media/laser-diffraction-z-rotation/videos/$($_.Name)" | Out-Null
+    }
+Git-MvIfExists -Root $root `
+    -SrcRel "2026_05_16_20_36.mp4" `
+    -DstRel "media/laser-diffraction-z-rotation/videos/2026_05_16_20_36.mp4" | Out-Null
+
+# Duplicate upload (same clip as 20260516_181439.mp4)
+$dupNew = Join-Path $root "20260516_181439_new.mp4"
+$canonical = Join-Path $root "media/laser-diffraction-z-rotation/videos/20260516_181439.mp4"
+if (Test-Path -LiteralPath $dupNew) {
+    if (Test-Path -LiteralPath $canonical) {
+        Invoke-Git -WorkDir $root -Args @("rm", "-f", "--", "20260516_181439_new.mp4")
+        Write-Host "  removed duplicate: 20260516_181439_new.mp4"
+    } else {
+        Git-MvIfExists -Root $root `
+            -SrcRel "20260516_181439_new.mp4" `
+            -DstRel "media/laser-diffraction-z-rotation/videos/20260516_181439_new.mp4" | Out-Null
+    }
+}
+
 # Serpentine CAD images (if present)
 @{
     "image 10.jpg" = "media/serpentine-interferometer/images/cad/image-10.jpg"

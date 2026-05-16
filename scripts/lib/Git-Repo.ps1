@@ -7,6 +7,16 @@ function Find-GitExe {
     $cmd = Get-Command git -ErrorAction SilentlyContinue
     if ($cmd) { return $cmd.Source }
 
+    $gdGit = "${env:LocalAppData}\GitHubDesktop\app-3.5.8\resources\app\git\cmd\git.exe"
+    if (Test-Path -LiteralPath $gdGit) { return $gdGit }
+    $gdRoot = Join-Path $env:LocalAppData "GitHubDesktop"
+    if (Test-Path -LiteralPath $gdRoot) {
+        $latest = Get-ChildItem -Path (Join-Path $gdRoot "app-*\resources\app\git\cmd\git.exe") -ErrorAction SilentlyContinue |
+            Sort-Object FullName -Descending |
+            Select-Object -First 1
+        if ($latest) { return $latest.FullName }
+    }
+
     $candidates = @(
         "${env:ProgramFiles}\Git\cmd\git.exe",
         "${env:ProgramFiles}\Git\bin\git.exe",
