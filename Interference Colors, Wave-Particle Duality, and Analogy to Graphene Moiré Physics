@@ -25,3 +25,4 @@ Experimental Context
 These four-color patterns are most clearly observed under Condition A (polarizing film only). They are significantly suppressed under Condition B (black paper aperture) and almost completely eliminated under Condition C (UV irradiation), leaving only the central interference node. This tunability demonstrates optical analogs of gating and environmental control in 2D material systems.
 Significance
 This low-cost DIY interferometer provides an accessible optical platform to visualize and explore concepts that are otherwise only accessible through expensive nanofabrication and cryogenic setups in condensed matter physics. It bridges classical optics with modern twistronics and polaritonics.
+Although four characteristic interference colors (RGYB) are theoretically expected in birefringent systems with white light, the current red diode laser produces primarily monochromatic red patterns on the screen.
