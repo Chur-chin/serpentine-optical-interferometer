@@ -11,13 +11,19 @@ media/
 │   └── videos/
 │       ├── 20260513_194532.mp4  # Video 1 — double spot
 │       ├── circular_interference.mp4  # Video 2 (from mp4-2.mp4)
+│       ├── sessions/20260517/   # timestamped 720p session clips
+│       ├── curated/             # Key / Final / Final2 / Finale edits
+│       ├── uv-contrast/         # UV vs pol-film vs black-paper
+│       ├── uv-distance/         # UV at 25 cm / 50 cm
+│       ├── showcase/            # Video3–5 overview clips
 │       └── archive/
+│           └── duplicates/      # byte-identical copies (never deleted)
 ├── laser-diffraction-z-rotation/
 │   ├── photos/                  # 20260515_203*.jpg
-│   └── videos/                  # 20260515_19*.mp4 (8 clips)
+│   └── videos/                  # 20260515–16 clips + Video7_ZAxisRotation
 └── serpentine-interferometer/
     └── images/
-        ├── cad/
+        ├── cad/                 # ray diagram, CAD renders
         ├── notebook/
         └── bench/
 ```

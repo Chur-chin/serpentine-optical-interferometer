@@ -24,6 +24,16 @@
 - 출력 빔이 거의 0°에 가까울 때의 원형 간섭 무늬
 - 세르펜틴 레이아웃의 폐루프 특성을 보여줌
 
+### Curated & session clips (2026-05-17+)
+
+| Folder | Contents |
+|--------|----------|
+| [curated/key/](media/holoscopic-boundary/videos/curated/key/) | Recommended short set (`Key_Video*`) |
+| [uv-contrast/](media/holoscopic-boundary/videos/uv-contrast/) | UV / black-paper / Mobius-lock comparisons |
+| [uv-distance/](media/holoscopic-boundary/videos/uv-distance/) | UV at 25 cm vs 50 cm |
+| [sessions/20260517/](media/holoscopic-boundary/videos/sessions/20260517/) | 29 timestamped 720p session clips |
+| [showcase/](media/holoscopic-boundary/videos/showcase/) | Beam split, fringe transition, serpentine loop |
+
 **문서:** [docs/holoscopic-boundary/](docs/holoscopic-boundary/) · **영상 폴더:** [media/holoscopic-boundary/videos/](media/holoscopic-boundary/videos/)
 
 ---

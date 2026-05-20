@@ -16,6 +16,15 @@ $dirs = @(
     "media/holoscopic-boundary/images/input_position",
     "media/holoscopic-boundary/images/output_position",
     "media/holoscopic-boundary/videos/archive",
+    "media/holoscopic-boundary/videos/archive/duplicates",
+    "media/holoscopic-boundary/videos/sessions/20260517",
+    "media/holoscopic-boundary/videos/curated/key",
+    "media/holoscopic-boundary/videos/curated/final",
+    "media/holoscopic-boundary/videos/curated/final2",
+    "media/holoscopic-boundary/videos/curated/finale",
+    "media/holoscopic-boundary/videos/uv-contrast",
+    "media/holoscopic-boundary/videos/uv-distance",
+    "media/holoscopic-boundary/videos/showcase",
     "media/laser-diffraction-z-rotation/photos",
     "media/laser-diffraction-z-rotation/videos",
     "media/serpentine-interferometer/images/cad",
@@ -28,6 +37,9 @@ foreach ($d in $dirs) { Ensure-Dir (Join-Path $root $d) }
 Get-ChildItem -Path $root -Filter "*.docx" -File -ErrorAction SilentlyContinue | ForEach-Object {
     Git-MvIfExists -Root $root -SrcRel $_.Name -DstRel "docs/manuscripts/$($_.Name)" | Out-Null
 }
+Git-MvIfExists -Root $root `
+    -SrcRel "Interference Colors, Wave-Particle Duality, and Analogy to Graphene Moiré Physics" `
+    -DstRel "docs/manuscripts/interference-colors-graphene-moire-overview.md" | Out-Null
 
 # Holoscopic stills
 Get-ChildItem -Path $root -Filter "20260513_*.jpg" -File -ErrorAction SilentlyContinue | ForEach-Object {
@@ -124,6 +136,102 @@ if (Test-Path -LiteralPath $dupNew) {
     $underDocs = Join-Path "docs/images" $_.Key
     if (Test-Path (Join-Path $root $underDocs)) {
         Git-MvIfExists -Root $root -SrcRel $underDocs -DstRel $_.Value | Out-Null
+    }
+}
+
+Git-MvIfExists -Root $root `
+    -SrcRel "serpentine_interferometer_ray_diagram.png" `
+    -DstRel "media/serpentine-interferometer/images/cad/serpentine_interferometer_ray_diagram.png" | Out-Null
+
+# 2026-05-17 holoscopic session (timestamped 720p clips)
+Get-ChildItem -Path $root -Filter "20260517_*_720p.mp4" -File -ErrorAction SilentlyContinue | ForEach-Object {
+    Git-MvIfExists -Root $root -SrcRel $_.Name `
+        -DstRel "media/holoscopic-boundary/videos/sessions/20260517/$($_.Name)" | Out-Null
+}
+
+# Curated holoscopic sets (edited titles preserved)
+@{
+    "Key_"   = "media/holoscopic-boundary/videos/curated/key"
+    "Final_" = "media/holoscopic-boundary/videos/curated/final"
+    "Final2_" = "media/holoscopic-boundary/videos/curated/final2"
+    "Finale_" = "media/holoscopic-boundary/videos/curated/finale"
+}.GetEnumerator() | ForEach-Object {
+    $prefix = $_.Key
+    $dstDir = $_.Value
+    Get-ChildItem -Path $root -Filter "${prefix}*.mp4" -File -ErrorAction SilentlyContinue | ForEach-Object {
+        Git-MvIfExists -Root $root -SrcRel $_.Name -DstRel "$dstDir/$($_.Name)" | Out-Null
+    }
+}
+
+# UV contrast / Mobius-lock experiments
+@(
+    "UV_Contrast_Video1_SatelliteFades.mp4",
+    "UV_Contrast_Video2_FringeVanish.mp4",
+    "UV_Contrast_Video3_BeforeAfterUV.mp4",
+    "UV_Contrast_Video4_CentralOnly.mp4",
+    "UV_True_Video1_CentralSpotOnly.mp4",
+    "UV_True_Video2_MobiusLock.mp4",
+    "UV_Video2_NoFringe.mp4",
+    "UV_Video3_MobiusEffect.mp4",
+    "UV_Video4_TransitionLocked.mp4",
+    "UV_Video5_NoTransition.mp4"
+) | ForEach-Object {
+    Git-MvIfExists -Root $root -SrcRel $_ `
+        -DstRel "media/holoscopic-boundary/videos/uv-contrast/$_" | Out-Null
+}
+Git-MvIfExists -Root $root `
+    -SrcRel "UV_Video1_StaticSpot (1).mp4" `
+    -DstRel "media/holoscopic-boundary/videos/uv-contrast/UV_Video1_StaticSpot.mp4" | Out-Null
+
+# UV distance sweeps (25 cm / 50 cm)
+@(
+    "UVdist_Video1_PolFilmOnly_Run1.mp4",
+    "UVdist_Video2_UV50cm_Run1.mp4",
+    "UVdist_Video3_PolFilmOnly_Run2.mp4",
+    "UVdist_Video4_UV50cm_Run2.mp4",
+    "UVdist_Video5_UV25cm_then_50cm.mp4",
+    "UVdist2_Video1_PolOnly_then_UV50cm.mp4",
+    "UVdist2_Video2_PolOnly_then_UV25cm.mp4",
+    "UVdist2_Video3_PolOnly_then_UV50cm.mp4",
+    "UVdist2_Video4_PolOnly_then_UV25cm.mp4"
+) | ForEach-Object {
+    Git-MvIfExists -Root $root -SrcRel $_ `
+        -DstRel "media/holoscopic-boundary/videos/uv-distance/$_" | Out-Null
+}
+
+# README showcase clips (Video 3–6 holoscopic; Video 7 → z-rotation)
+@(
+    "Video3_BeamSplitPattern.mp4",
+    "Video4_FringeTransition.mp4",
+    "Video5_SerpentineLoop.mp4"
+) | ForEach-Object {
+    Git-MvIfExists -Root $root -SrcRel $_ `
+        -DstRel "media/holoscopic-boundary/videos/showcase/$_" | Out-Null
+}
+Git-MvIfExists -Root $root `
+    -SrcRel "Video7_ZAxisRotation.mp4" `
+    -DstRel "media/laser-diffraction-z-rotation/videos/Video7_ZAxisRotation.mp4" | Out-Null
+
+# Video6 is byte-identical to Video5 — keep in archive/duplicates (never delete)
+$v5Root = Join-Path $root "Video5_SerpentineLoop.mp4"
+$v6Root = Join-Path $root "Video6_HoloscopicBoundary.mp4"
+$v5Showcase = Join-Path $root "media/holoscopic-boundary/videos/showcase/Video5_SerpentineLoop.mp4"
+if (Test-Path -LiteralPath $v6Root) {
+    if (Test-Path -LiteralPath $v5Showcase) {
+        Git-MvIfExists -Root $root `
+            -SrcRel "Video6_HoloscopicBoundary.mp4" `
+            -DstRel "media/holoscopic-boundary/videos/archive/duplicates/Video6_HoloscopicBoundary.mp4" | Out-Null
+    } elseif (Test-Path -LiteralPath $v5Root) {
+        Git-MvIfExists -Root $root `
+            -SrcRel "Video5_SerpentineLoop.mp4" `
+            -DstRel "media/holoscopic-boundary/videos/showcase/Video5_SerpentineLoop.mp4" | Out-Null
+        Git-MvIfExists -Root $root `
+            -SrcRel "Video6_HoloscopicBoundary.mp4" `
+            -DstRel "media/holoscopic-boundary/videos/archive/duplicates/Video6_HoloscopicBoundary.mp4" | Out-Null
+    } else {
+        Git-MvIfExists -Root $root `
+            -SrcRel "Video6_HoloscopicBoundary.mp4" `
+            -DstRel "media/holoscopic-boundary/videos/showcase/Video6_HoloscopicBoundary.mp4" | Out-Null
     }
 }
 

@@ -58,10 +58,10 @@ if ($Commit -and (Get-Porcelain -Root $root)) {
     $msg = @"
 chore(repo): reorganize root media, docs, and archive legacy notes
 
-- Move holoscopic stills and z-rotation photos/videos into media/
-- Move manuscripts into docs/manuscripts/
-- Archive legacy root READme fragments under docs/archive/legacy-root/
-- Archive mp4-1 text stub; Video 1 is 20260513_194532.mp4
+- Move 20260517 session and curated holoscopic videos into media/holoscopic-boundary/videos/
+- Move UV contrast/distance experiment clips into dedicated subfolders
+- Move root manuscripts and ray diagram into docs/ and media/
+- Archive byte-identical Video6 duplicate (same content as Video5)
 "@
     Invoke-Git -WorkDir $root -Args @("commit", "-m", $msg)
 }

@@ -8,7 +8,11 @@
 
 ![Serpentine ring interferometer — CAD rendering](../../media/serpentine-interferometer/images/cad/image-10.jpg)
 
-*If the image is missing, add your CAD render as `media/serpentine-interferometer/images/cad/image-10.jpg`.*
+Ray diagram (uploaded layout sketch):
+
+![Serpentine interferometer ray diagram](../../media/serpentine-interferometer/images/cad/serpentine_interferometer_ray_diagram.png)
+
+*If the CAD render is missing, add it as `media/serpentine-interferometer/images/cad/image-10.jpg`.*
 
 ## 실험 노트: Savart / Serpentine
 
