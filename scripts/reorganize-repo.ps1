@@ -40,6 +40,12 @@ Get-ChildItem -Path $root -Filter "*.docx" -File -ErrorAction SilentlyContinue |
 Git-MvIfExists -Root $root `
     -SrcRel "Interference Colors, Wave-Particle Duality, and Analogy to Graphene Moiré Physics" `
     -DstRel "docs/manuscripts/interference-colors-graphene-moire-overview.md" | Out-Null
+Get-ChildItem -Path $root -File -ErrorAction SilentlyContinue |
+    Where-Object { $_.Name -like "Interference Colors,*" } |
+    ForEach-Object {
+        Git-MvIfExists -Root $root -SrcRel $_.Name `
+            -DstRel "docs/manuscripts/interference-colors-graphene-moire-overview.md" | Out-Null
+    }
 
 # Holoscopic stills
 Get-ChildItem -Path $root -Filter "20260513_*.jpg" -File -ErrorAction SilentlyContinue | ForEach-Object {
