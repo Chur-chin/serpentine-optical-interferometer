@@ -1,0 +1,27 @@
+# Laser Mode-Locking Experiment with Privacy Film
+
+## Observation Summary
+
+### 1. 0° Orientation
+Privacy protection film (사생활보호필름) at 0° exhibits **extremely static and superior mode-locking** compared to standard polarizing film, with mostly single-dot patterns and minimal fluctuation.
+
+### 2. Rhombus (마름모) Configuration
+Contrary to expectations, the privacy film shows **almost no change** even in rhombus orientation. Because light does not spread diffusely like in polarizing film, **discrete patterns appear more clearly and stably**.
+
+**Key Advantage**: Privacy film maintains sharp, discrete mode-locked dots across different geometries (0° and rhombus), making it significantly more effective for stable pattern control.
+
+## Files
+
+### Privacy Film at 0°
+- `privacy_film_0deg_v1.mp4`
+- `privacy_film_0deg_v2.mp4`
+- `privacy_film_0deg_v3.mp4`
+- `privacy_film_0deg_v4.mp4`
+- `privacy_film_0deg_v5.mp4`
+
+### Privacy Film in Rhombus Configuration (New)
+- `privacy_film_rhombus_v1.mp4`
+- `privacy_film_rhombus_v2.mp4`
+- `privacy_film_rhombus_v3.mp4`
+- `privacy_film_rhombus_v4.mp4`
+- `privacy_film_rhombus_v5.mp4`
