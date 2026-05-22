@@ -27,9 +27,15 @@ $dirs = @(
     "media/holoscopic-boundary/videos/showcase",
     "media/laser-diffraction-z-rotation/photos",
     "media/laser-diffraction-z-rotation/videos",
+    "media/laser-diffraction-z-rotation/videos/archive",
     "media/serpentine-interferometer/images/cad",
     "media/serpentine-interferometer/images/notebook",
-    "media/serpentine-interferometer/images/bench"
+    "media/serpentine-interferometer/images/bench",
+    "media/serpentine-laser-array/videos",
+    "media/serpentine-laser-array/videos/sessions/20260522",
+    "media/serpentine-laser-array/images",
+    "docs/serpentine-laser-array",
+    "data/serpentine-laser-array"
 )
 foreach ($d in $dirs) { Ensure-Dir (Join-Path $root $d) }
 
@@ -118,13 +124,15 @@ Git-MvIfExists -Root $root `
     -SrcRel "2026_05_16_20_36.mp4" `
     -DstRel "media/laser-diffraction-z-rotation/videos/2026_05_16_20_36.mp4" | Out-Null
 
-# Duplicate upload (same clip as 20260516_181439.mp4)
+# Duplicate upload (same clip as 20260516_181439.mp4) — archive only, never delete video
 $dupNew = Join-Path $root "20260516_181439_new.mp4"
 $canonical = Join-Path $root "media/laser-diffraction-z-rotation/videos/20260516_181439.mp4"
+$dupArchive = Join-Path $root "media/laser-diffraction-z-rotation/videos/archive/20260516_181439_new.mp4"
 if (Test-Path -LiteralPath $dupNew) {
     if (Test-Path -LiteralPath $canonical) {
-        Invoke-Git -WorkDir $root -Args @("rm", "-f", "--", "20260516_181439_new.mp4")
-        Write-Host "  removed duplicate: 20260516_181439_new.mp4"
+        Git-MvIfExists -Root $root `
+            -SrcRel "20260516_181439_new.mp4" `
+            -DstRel "media/laser-diffraction-z-rotation/videos/archive/20260516_181439_new.mp4" | Out-Null
     } else {
         Git-MvIfExists -Root $root `
             -SrcRel "20260516_181439_new.mp4" `
@@ -240,6 +248,28 @@ if (Test-Path -LiteralPath $v6Root) {
             -DstRel "media/holoscopic-boundary/videos/showcase/Video6_HoloscopicBoundary.mp4" | Out-Null
     }
 }
+
+# Serpentine laser array — curated trials 01–22 (git mv only; all videos retained)
+Get-ChildItem -Path $root -Filter "*.mp4" -File -ErrorAction SilentlyContinue |
+    Where-Object { $_.Name -match '^\d{2}_' } |
+    ForEach-Object {
+        Git-MvIfExists -Root $root -SrcRel $_.Name `
+            -DstRel "media/serpentine-laser-array/videos/$($_.Name)" | Out-Null
+    }
+
+Git-MvIfExists -Root $root `
+    -SrcRel "led_panel_6x8_grid.jpg" `
+    -DstRel "media/serpentine-laser-array/images/led_panel_6x8_grid.jpg" | Out-Null
+
+# 2026-05-22 repeat-validation session (camera export IDs preserved)
+Get-ChildItem -Path $root -Filter "20260522-*.mp4" -File -ErrorAction SilentlyContinue | ForEach-Object {
+    Git-MvIfExists -Root $root -SrcRel $_.Name `
+        -DstRel "media/serpentine-laser-array/videos/sessions/20260522/$($_.Name)" | Out-Null
+}
+
+Git-MvIfExists -Root $root `
+    -SrcRel "README-input 90 degree.pdf" `
+    -DstRel "docs/serpentine-laser-array/polarizer-input-90deg-notes.pdf" | Out-Null
 
 Write-Host ""
 Write-Host "Reorganization pass complete. Run: git add -A && git status" -ForegroundColor Yellow

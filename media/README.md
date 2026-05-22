@@ -21,11 +21,15 @@ media/
 ├── laser-diffraction-z-rotation/
 │   ├── photos/                  # 20260515_203*.jpg
 │   └── videos/                  # 20260515–16 clips + Video7_ZAxisRotation
-└── serpentine-interferometer/
-    └── images/
-        ├── cad/                 # ray diagram, CAD renders
-        ├── notebook/
-        └── bench/
+├── serpentine-interferometer/
+│   └── images/
+│       ├── cad/                 # ray diagram, CAD renders
+│       ├── notebook/
+│       └── bench/
+└── serpentine-laser-array/
+    ├── videos/                  # 01_ … 22_ curated trials
+    │   └── sessions/20260522/   # repeat-validation exports
+    └── images/                  # led_panel_6x8_grid.jpg (if present)
 ```
 
 ## Restoring videos on a fresh clone

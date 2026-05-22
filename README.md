@@ -1,147 +1,172 @@
-# Serpentine Laser Array — Polarization-Controlled Discrete Mode Switching (1×1 → 6×8 Expansion Study)
+# Serpentine Optical Interferometer — Research Repository
 
-Red laser dot(s) projected onto a diffuse white LED panel surface, recording the spatial distribution and optical behavior of reflected/scattered light across 20 trials across 4 sessions. **Key finding (Session 4):** orthogonal polarizer film at the input port produces discrete satellite modes even in a 1×1 array — confirming that discrete mode generation is driven by polarization state, not array size. Expansion to **6×8** remains planned for large-scale collective propagation.
+**Author:** Chur Chin (Busan, Republic of Korea)  
+**Repository:** [github.com/Chur-chin/serpentine-optical-interferometer](https://github.com/Chur-chin/serpentine-optical-interferometer)
 
----
-
-## Overview Grid (Session 1 — 6 videos × 8 time steps)
-
-![6×8 frame grid](led_panel_6x8_grid.jpg)
-
-*Columns = videos 01–06 · Rows = evenly sampled time steps within each video*
+This repository documents three coupled experimental threads: **holoscopic boundary** near-field interference, **laser diffraction with Z-axis rotation**, and the **serpentine laser array** (1×1 → planned 6×8) polarization-controlled discrete mode study. All video assets are versioned in Git (Git LFS for large binaries). **No experiment video is deleted during reorganization** — files are relocated with `git mv` only.
 
 ---
 
-## Video Captions
+## Executive summary
 
-### Session 1 — White LED Panel, No Polarizer (videos 01–06)
+A **1×1 serpentine** red-laser array on a diffuse LED panel exhibits **localized discrete mode switching** rather than lattice-wide propagation. Across **22 curated trials** (Sessions 1–5), the primary control variable for dot versus streak output is **input polarizer orientation** (orthogonal → discrete satellites; diamond/45° → pure streaks). **Session 6 (2026-05-22)** adds five repeat-validation clips confirming reproducibility under fixed conditions. Large-array **6×8 collective propagation** remains the next experimental milestone.
+
+---
+
+## Repository layout
+
+```
+├── README.md                          # This file
+├── docs/
+│   ├── holoscopic-boundary/           # Near-field interference notes
+│   ├── laser-diffraction-z-rotation/
+│   ├── serpentine-interferometer/     # CAD / bench / notebook
+│   ├── serpentine-laser-array/        # 1×1 array study (detailed index)
+│   └── manuscripts/                   # Word drafts
+├── media/                             # Photos and videos (LFS)
+│   ├── holoscopic-boundary/
+│   ├── laser-diffraction-z-rotation/
+│   ├── serpentine-interferometer/
+│   └── serpentine-laser-array/        # Trials 01–22 + 20260522 session
+├── data/
+│   └── serpentine-laser-array/experiment-summary.csv
+└── scripts/
+    ├── reorganize-repo.ps1            # git mv layout (no video deletion)
+    └── apply-repo-layout.ps1
+```
+
+| Thread | Documentation | Media |
+|--------|---------------|-------|
+| Holoscopic boundary | [`docs/holoscopic-boundary/`](docs/holoscopic-boundary/) | [`media/holoscopic-boundary/`](media/holoscopic-boundary/) |
+| Z-axis laser diffraction | [`docs/laser-diffraction-z-rotation/`](docs/laser-diffraction-z-rotation/) | [`media/laser-diffraction-z-rotation/`](media/laser-diffraction-z-rotation/) |
+| Serpentine interferometer (CAD) | [`docs/serpentine-interferometer/`](docs/serpentine-interferometer/) | [`media/serpentine-interferometer/`](media/serpentine-interferometer/) |
+| **Serpentine laser array (1×1)** | [`docs/serpentine-laser-array/`](docs/serpentine-laser-array/) | [`media/serpentine-laser-array/`](media/serpentine-laser-array/) |
+
+**Maintenance:** from the repo root, run `.\scripts\reorganize-repo.ps1` (uses GitHub Desktop’s bundled `git.exe` when available). Requires Git LFS: `git lfs install && git lfs pull`.
+
+---
+
+## Experiment data summary — serpentine laser array
+
+Machine-readable table: [`data/serpentine-laser-array/experiment-summary.csv`](data/serpentine-laser-array/experiment-summary.csv)
+
+| Session | Date | Videos | *n* | Primary control | Key outcome |
+|---------|------|--------|-----|-----------------|-------------|
+| 1 | 2026-05 | 01–06 | 6 | White LED, no polarizer | Single dot → cluster → arc → vertical streaks |
+| 2 | 2026-05 | 07–10 | 4 | Dark field / UV | Discrete dots confirmed; UV isolates red channel |
+| 3 | 2026-05 | 11–15 | 5 | Black paper | Fringe suppression independent of surface |
+| 4 | 2026-05 | 16–20 | 5 | Orthogonal input polarizer | **Discrete modes in 1×1** — polarization, not array size |
+| 5 | 2026-05 | 21–22 | 2 | Diamond input; output analyzer | Streak mode vs dot mode; extinction/recovery |
+| **6** | **2026-05-22** | **5 repeat clips** | **5** | **Repeat validation (fixed setup)** | **Reproducibility across back-to-back runs** |
+
+Curated videos: `media/serpentine-laser-array/videos/` · Session 6: `media/serpentine-laser-array/videos/sessions/20260522/`
+
+---
+
+## Serpentine laser array — overview grid (Session 1)
+
+![6×8 frame grid](media/serpentine-laser-array/images/led_panel_6x8_grid.jpg)
+
+*Columns = videos 01–06 · Rows = evenly sampled time steps (add `led_panel_6x8_grid.jpg` under `media/serpentine-laser-array/images/` if missing locally).*
+
+---
+
+## Video captions (curated trials 01–22)
+
+Paths below are under `media/serpentine-laser-array/videos/`.
+
+### Session 1 — White LED panel, no polarizer (01–06)
 
 | File | Duration | Description |
 |------|----------|-------------|
-| `01_baseline_single_dot.mp4` | ~48 s | **Baseline — single localized mode.** One stationary dot at lower-center. No lattice propagation; edge dominates the entire system. Reference for isolated mode behavior. |
-| `02_dot_appears_bottom.mp4` | ~48 s | **Mode re-entry at edge.** Dot reappears at bottom edge with slight positional drift. Early surface reflection visible — coupling path still minimal. |
-| `03_dots_cluster_scatter.mp4` | ~47 s | **Discrete satellite cluster onset.** Multiple dots in a loose, irregular cluster across the lower half. Transition from single mode toward multi-site activation — still local, not collective. |
-| `04_dots_arc_pattern.mp4` | ~43 s | **Angular preference emerging.** Dots arrange into a curved arc — non-circular symmetry indicates serpentine geometry is influencing optical path selection, not simple diffuse scattering. |
-| `05_streaks_vertical.mp4` | ~35 s | **Continuous fringe → streak transition.** Dots elongate into vertical streaks, suggesting partial fringe coupling along one axis. Directional satellite set reappears consistently. |
-| `06_streaks_full_panel.mp4` | ~34 s | **Broadest local mode extent.** Multiple streaks across larger panel area — closest to collective behavior seen in current 1×1 array, but large-array propagation still absent. |
+| `01_baseline_single_dot.mp4` | ~48 s | **Baseline — single localized mode.** One stationary dot at lower-center. Reference for isolated mode behavior. |
+| `02_dot_appears_bottom.mp4` | ~48 s | **Mode re-entry at edge.** Dot reappears at bottom edge with slight drift. |
+| `03_dots_cluster_scatter.mp4` | ~47 s | **Discrete satellite cluster onset.** Multiple dots in a loose cluster — local, not collective. |
+| `04_dots_arc_pattern.mp4` | ~43 s | **Angular preference emerging.** Curved arc — serpentine geometry influences path selection. |
+| `05_streaks_vertical.mp4` | ~35 s | **Fringe → streak transition.** Vertical streak elongation along one axis. |
+| `06_streaks_full_panel.mp4` | ~34 s | **Broadest local extent** in current 1×1 configuration. |
 
-### Session 2 — Dark Background / UV Suppression (videos 07–10)
-
-| File | Duration | Description |
-|------|----------|-------------|
-| `07_discrete_cluster_dark.mp4` | ~41 s | **Discrete satellite cluster confirmed — dark field.** Panel background fully dark; red dots appear as isolated, sharply separated point emitters. Cluster geometry shows consistent non-circular asymmetry, reinforcing angular preference hypothesis. |
-| `08_cluster_to_streaks_dark.mp4` | ~33 s | **Cluster → streak transition in dark conditions.** Satellite dots elongate into directional streaks as the trial progresses. Streak orientation is non-random — same preferred axes as Session 1, confirming structural optical path selection. |
-| `09_scattered_dots_dark.mp4` | ~38 s | **Wide-field discrete dot scatter — dark field.** Dots distributed across a broader area in distinct, separated positions. Clear discreteness visible: dots do not blur or merge, consistent with localized mode jumping rather than continuous propagation. |
-| `10_uv_suppression_red_on_blue.mp4` | ~36 s | **UV suppression trial.** UV illumination introduced; panel background shifts to deep blue/violet. Red laser satellites remain visible as distinct warm-toned emitters against the UV field. UV background suppresses ambient scatter, isolating red-channel signal. Demonstrates wavelength-selective visibility of satellite pattern. |
-
-### Session 3 — Black Paper Backup (videos 11–15)
+### Session 2 — Dark background / UV suppression (07–10)
 
 | File | Duration | Description |
 |------|----------|-------------|
-| `11_blackpaper_single_streak_onset.mp4` | ~40 s | **Single red dot with streak onset — black paper.** Fringe structure begins suppressed against black paper surface; only the primary emission point and its immediate streak survive. Confirms fringe suppression is not a white-panel artifact. |
-| `12_blackpaper_fringe_suppressed_dot.mp4` | ~34 s | **Fringe lines fully suppressed — black paper.** Single dot persists at center with no surrounding diffuse halo. Fringe suppression occurs equally on black paper and white LED panel, ruling out surface-dependent scattering. |
-| `13_blackpaper_satellite_cluster_cross.mp4` | ~35 s | **Satellite cluster — cross geometry, black paper.** Discrete, separated dots arrange in a cross/plus pattern around the primary dot. Angular preference consistent with Sessions 1 and 2; no merging or blurring. |
-| `14_blackpaper_fringe_null_dark.mp4` | ~31 s | **Near-complete fringe null state — black paper.** Only faint residual dots visible at extreme low intensity. Demonstrates fringe suppression can reach a near-zero floor independent of background surface. |
-| `15_blackpaper_wide_discrete_scatter.mp4` | ~28 s | **Wide-field discrete scatter — black paper.** Satellites spread to a broad arc as pure point-like emitters with no streak elongation. Localized mode jumping on black paper matches behavior seen on LED panel — confirms surface independence. |
+| `07_discrete_cluster_dark.mp4` | ~41 s | **Discrete cluster — dark field.** Isolated point emitters; non-circular asymmetry. |
+| `08_cluster_to_streaks_dark.mp4` | ~33 s | **Cluster → streaks (dark).** Same preferred axes as Session 1. |
+| `09_scattered_dots_dark.mp4` | ~38 s | **Wide-field discrete scatter.** Localized mode jumping, not blur merge. |
+| `10_uv_suppression_red_on_blue.mp4` | ~36 s | **UV suppression.** Red satellites visible on violet UV background. |
 
-### Session 4 — Orthogonal Polarizer Film at Input (videos 16–20)
-
-> **Key finding:** discrete satellite modes appear in a 1×1 array when the input polarizer is set orthogonal. Array size is not the primary driver — polarization state is.
+### Session 3 — Black paper backup (11–15)
 
 | File | Duration | Description |
 |------|----------|-------------|
-| `16_polarizer_orthogonal_single_dot.mp4` | ~29 s | **Orthogonal polarizer baseline — single dot.** Polarizer film placed orthogonal at the input port of the 1×1 serpentine. Single isolated dot visible with short vertical streak; no fringe lines. Confirms polarization state controls fringe onset. |
-| `17_polarizer_orthogonal_fringe_null.mp4` | ~26 s | **Fringe fully nulled — orthogonal polarization.** No fringe structure visible; only the primary dot survives. Demonstrates that fringe lines are polarization-dependent, not a surface or geometry artifact. |
-| `18_polarizer_orthogonal_dot_stable.mp4` | ~27 s | **Stable isolated dot — orthogonal polarization.** Primary dot holds a fixed position with minimal drift across the full trial duration. System locked in single localized state under orthogonal polarization. |
-| `19_polarizer_orthogonal_discrete_onset.mp4` | ~22 s | **Discrete satellite onset — 1×1 with orthogonal polarizer.** Discrete satellites appear despite 1×1 array geometry. Confirms discrete mode generation is driven by polarization condition, not array size. |
-| `20_polarizer_orthogonal_discrete_confirmed.mp4` | ~24 s | **Discrete mode confirmed — polarizer-induced, geometry-independent.** Multiple discrete satellites visible and stable. Establishes that orthogonal polarizer input is a sufficient condition for discrete satellite generation even in a minimal 1×1 configuration. |
+| `11_blackpaper_single_streak_onset.mp4` | ~40 s | Streak onset on black paper. |
+| `12_blackpaper_fringe_suppressed_dot.mp4` | ~34 s | Fringe lines suppressed; single dot remains. |
+| `13_blackpaper_satellite_cluster_cross.mp4` | ~35 s | Cross/plus satellite geometry. |
+| `14_blackpaper_fringe_null_dark.mp4` | ~31 s | Near-complete fringe null. |
+| `15_blackpaper_wide_discrete_scatter.mp4` | ~28 s | Wide arc of point-like satellites. |
+
+### Session 4 — Orthogonal polarizer at input (16–20)
+
+> **Key finding:** discrete satellites in **1×1** with orthogonal input polarizer — array size is not the primary driver.
+
+| File | Duration | Description |
+|------|----------|-------------|
+| `16_polarizer_orthogonal_single_dot.mp4` | ~29 s | Orthogonal baseline — single dot, short vertical streak. |
+| `17_polarizer_orthogonal_fringe_null.mp4` | ~26 s | Fringe fully nulled. |
+| `18_polarizer_orthogonal_dot_stable.mp4` | ~27 s | Stable isolated dot for full trial. |
+| `19_polarizer_orthogonal_discrete_onset.mp4` | ~22 s | Discrete satellite onset in 1×1. |
+| `20_polarizer_orthogonal_discrete_confirmed.mp4` | ~24 s | Discrete mode confirmed — geometry-independent. |
+
+### Session 5 — Diamond input / output analyzer (21–22)
+
+| File | Duration | Description |
+|------|----------|-------------|
+| `21_polarizer_diamond_input_streak_mode.mp4` | ~6 s | **Diamond (45°) input — pure streak mode.** |
+| `22_polarizer_output_rotation_streak_suppress_recover.mp4` | ~30 s | Output rotation → extinction then recovery; polarized streak output. |
+
+### Session 6 — Repeat validation (2026-05-22)
+
+Five clips in `media/serpentine-laser-array/videos/sessions/20260522/` (export IDs preserved). See [`docs/serpentine-laser-array/README.md`](docs/serpentine-laser-array/README.md).
 
 ---
 
-## Technical Notes
+## Technical notes
 
-- **Camera**: 1920×1080 @ ~30 fps (original)
-- **Panel**: Diffuse white surface (LED panel / acrylic diffuser)
-- **Laser**: Red (~650 nm), single-point source
-- **Compressed**: 960×540, H.264 CRF 28, 15 fps — optimized for GitHub (<2 MB/file)
-
----
-
-## Observation
-
-Session 1 shows a progression from single static dot → scattered cluster → arc → vertical streaks. Session 2 (dark field) confirms that the discrete character is real and not an artifact of background illumination. Session 3 (black paper) confirms fringe suppression and discrete behavior are surface-independent. Session 4 is the critical result: **orthogonal polarizer input produces discrete satellites in a 1×1 array**, directly demonstrating that polarization state — not array size — is the primary control variable for discrete mode generation.
+| Parameter | Value |
+|-----------|--------|
+| Camera | 1920×1080 @ ~30 fps (original) |
+| Panel | Diffuse white LED / acrylic diffuser; black-paper and dark-field variants |
+| Laser | Red ~650 nm, single-point source |
+| GitHub export | 960×540, H.264 CRF 28, 15 fps (target &lt;2 MB/file where compressed) |
 
 ---
 
-## Analysis
+## Analysis and conclusions
 
-> The following interpretation is based on GPT analysis of the current footage.
-
-The current 1×1 serpentine configuration behaves more like **localized mode switching** than true dynamic rotation. The "slightly static" impression is accurate, for the following reasons:
-
-- No global lattice propagation occurs
-- Coupling paths are short
-- The edge effectively acts as the entire system
-
-As a result, the pattern appears to **jump between discrete states** rather than flow continuously across the surface.
-
-### Notable Finding — Angular Preference
-
-The discrete satellite clusters are **not fully circularly symmetric**. This suggests the serpentine geometry is **inducing an angular preference** in the optical output. If this were simple diffuse scattering, rotating the source should only increase diffuse blur. Instead, the same directional satellite set reappears consistently — indicating that the structure is actively involved in **optical path selection**, not just passive scattering.
-
-### Expected Changes with 6×8 Expansion
-
-- Fringe plumes will extend and connect spatially
-- Satellite activations will propagate in sequence across the array
-- The current "frozen dot" appearance is expected to diminish significantly
-
-### Summary Assessment (Sessions 1–4)
+The 1×1 serpentine behaves as **localized mode switching**: short coupling paths and edge-dominated dynamics produce **discrete state jumps** rather than continuous lattice flow. Satellite clusters show **non-circular angular preference**, consistent with geometry-assisted optical path selection.
 
 | Item | Status |
 |------|--------|
-| Continuous fringe → discrete satellite transition | Partially observed ✅ |
-| Behavior confined to local mode level | Confirmed ✅ |
-| Discrete character confirmed under dark field | Confirmed (Session 2) ✅ |
-| Fringe suppression surface-independent | Confirmed (Session 3) ✅ |
-| Red satellite survives UV background suppression | Confirmed (video 10) ✅ |
-| **Discrete mode triggered by orthogonal polarizer — 1×1 sufficient** | **Confirmed (Session 4) ✅** |
-| Diamond polarizer input → pure streak mode (no dots) | Confirmed (video 21) ✅ |
-| Output polarizer rotation → streak extinction + recovery | Confirmed (video 22) ✅ |
-| Streak output carries defined polarization state | Confirmed (video 22) ✅ |
-| Large-array collective effect | Pending (6×8 required) ❌ |
+| Fringe → discrete satellite transition | Partially observed ✅ |
+| Localized (non-collective) behavior | Confirmed ✅ |
+| Dark-field discreteness | Confirmed ✅ |
+| Surface-independent fringe suppression | Confirmed ✅ |
+| Orthogonal polarizer → discrete 1×1 modes | **Confirmed ✅** |
+| Diamond input → streak-only mode | Confirmed ✅ |
+| Output analyzer extinction/recovery | Confirmed ✅ |
+| Repeat validation (Session 6) | **Recorded ✅** |
+| 6×8 collective propagation | Pending ❌ |
 
-**Conclusion: Input polarizer orientation is the primary mode selector — orthogonal produces discrete dots, diamond (45°) produces pure streak lines. Streak output carries a well-defined polarization state confirmed by output analyzer extinction. 6×8 expansion remains necessary for large-scale collective propagation effects.**
-
-### Session 5 — Diamond Polarizer at Input / Output Polarizer Rotation (videos 21–22)
-
-> **Key finding:** diamond-orientation polarizer at input converts the output entirely into streak lines. Rotating a polarizer at the output port causes the streaks to temporarily vanish then recover — confirming the streak pattern carries a defined polarization state that can be selectively blocked.
-
-| File | Duration | Description |
-|------|----------|-------------|
-| `21_polarizer_diamond_input_streak_mode.mp4` | ~6 s | **Diamond polarizer at input — pure streak mode.** Polarizer film oriented at 45° (diamond) at the input port. Output is entirely streak lines with no discrete dot component — contrasts directly with orthogonal (Session 4) which produced discrete dots. Demonstrates that input polarizer angle selects between streak mode and discrete dot mode. |
-| `22_polarizer_output_rotation_streak_suppress_recover.mp4` | ~30 s | **Output polarizer rotation — streak suppression and recovery.** Polarizer film rotated at the output port while diamond input polarizer is active. Streaks temporarily disappear at the extinction angle then fully recover as rotation continues. Confirms streak pattern is polarized output: the output polarization state is well-defined and can be extinguished by an analyzer, ruling out incoherent scatter. |
-
+**Conclusion:** Input polarizer orientation is the primary mode selector. **6×8 expansion** is required for large-scale collective effects. Supplementary Savart-plate discussion and 0° vs 90° notes: [`docs/serpentine-laser-array/polarizer-input-90deg-notes.pdf`](docs/serpentine-laser-array/polarizer-input-90deg-notes.pdf).
 
 ---
 
-## Why 0° vs 90° Input Polarizer Produces Different Modes
+## Why 0° vs 90° input polarizer produces different modes
 
-> Based on GPT analysis — Savart plate behavior with polarizer input angle.
+A Savart plate’s fast/slow axes interact with input polarization angle. Near **90°**, o- and e-ray amplitudes tend toward balance and **streak/fringe** character strengthens; near **0°**, **discrete dot** character is relatively preserved. This matches the orthogonal (Session 4) versus diamond streak (Session 5) dichotomy in the curated trials.
 
-### Observed at 90° Input (from footage)
+---
 
-- Discrete vertical streaks and dots appear with high clarity
-- Dots elongate strongly into vertical streak form
-- When output analyzer is rotated, contrast changes periodically — pattern disappears then reappears strongly
+## License
 
-### Physical Explanation — Savart Plate Axis Interaction
-
-A Savart plate has two orthogonal axes (fast axis / slow axis).
-
-- **0° input polarizer** → relatively more aligned or misaligned with the Savart plate axes → discrete dot character is more likely to survive
-- **90° input polarizer** → input approaches 45° relative to the Savart plate axes, or o-ray / e-ray amplitudes become more equal → tendency toward stronger streak (continuous line) output
-
-In other words: at 90°, interference is more strongly activated, lengthening the streak lines. At 0°, discrete character is relatively more preserved.
-
-This is a well-known behavior. In Savart plate + polarizer experiments, switching between discrete ↔ fringe/streak modes depending on input polarizer angle is commonly observed.
-
+See [`License`](License).

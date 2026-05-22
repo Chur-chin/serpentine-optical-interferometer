@@ -4,3 +4,12 @@ Desktop.ini
 *.tmp
 *.bak
 ~$*
+.vscode/
+.idea/
+
+# Office lock files
+~$*.docx
+
+# Local scratch (never commit raw exports here)
+raw_inbox/
+exports/uncompressed/
