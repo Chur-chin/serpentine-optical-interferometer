@@ -15,5 +15,6 @@ raw_inbox/
 exports/uncompressed/
 _audit*.ps1
 _audit*.txt
+_git_result.txt
 _INVENTORY.txt
 SERPENTINE_INVESTIGATION_REPORT.md
