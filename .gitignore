@@ -13,3 +13,7 @@ Desktop.ini
 # Local scratch (never commit raw exports here)
 raw_inbox/
 exports/uncompressed/
+_audit*.ps1
+_audit*.txt
+_INVENTORY.txt
+SERPENTINE_INVESTIGATION_REPORT.md

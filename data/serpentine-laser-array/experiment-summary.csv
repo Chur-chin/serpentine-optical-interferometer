@@ -4,4 +4,5 @@ session_id,date,video_range,trial_count,primary_control,key_outcome,media_path
 3,2026-05,11-15,5,black paper backup,fringe suppression surface-independent,media/serpentine-laser-array/videos/
 4,2026-05,16-20,5,orthogonal input polarizer,discrete satellites in 1x1 array,media/serpentine-laser-array/videos/
 5,2026-05,21-22,2,diamond input and output analyzer rotation,streak vs dot mode selection,media/serpentine-laser-array/videos/
-6,2026-05-22,20260522 session clips,5,repeat validation fixed conditions,reproducibility across five back-to-back runs,media/serpentine-laser-array/videos/sessions/20260522/
+6,2026-05-22,20260522 session clips,5,repeat validation fixed polarizer conditions,reproducibility across five back-to-back runs,media/serpentine-laser-array/videos/sessions/20260522/
+7,2026-05-23,privacy-film 0deg rhombus 180deg,15,privacy protection film repeat validation,superior discrete mode-locking at all three orientations,media/serpentine-laser-array/videos/sessions/20260523/privacy-film/

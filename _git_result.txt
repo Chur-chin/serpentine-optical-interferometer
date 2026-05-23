@@ -1,0 +1,108 @@
+﻿=== Git executable ===
+REQUIRED path NOT FOUND: C:\Users\Administrator\AppData\Local\GitHubDesktop\app-3.5.8\resources\app\git\cmd\git.exe
+Using: C:\Users\Administrator\AppData\Local\GitHubDesktop\app-3.5.10\resources\app\git\cmd\git.exe
+=== Step 2: pull ===
+From https://github.com/Chur-chin/serpentine-optical-interferometer
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+pull exit: 0
+=== Step 3: lfs install ===
+git-lfs/3.7.1 (GitHub; windows amd64; go 1.25.1; git b84b3384)
+Updated Git hooks.
+Git LFS initialized.
+lfs install exit: 0
+=== Step 4: lfs pull ===
+lfs pull exit: 0
+=== Step 5: finalize-and-push ===
+=== finalize-and-push ===
+Root: C:\Users\Administrator\Documents\GitHub\serpentine-optical-interferometer
+Git:  C:\Users\Administrator\AppData\Local\GitHubDesktop\app-3.5.10\resources\app\git\cmd\git.exe
+Repository: C:\Users\Administrator\Documents\GitHub\serpentine-optical-interferometer
+git lfs version
+git-lfs/3.7.1 (GitHub; windows amd64; go 1.25.1; git b84b3384)
+git lfs install --local
+Updated Git hooks.
+Git LFS initialized.
+  skip (missing): Interference Colors, Wave-Particle Duality, and Analogy to Graphene Moir챕 Physics
+  skip (missing): 20260515_192723.mp4
+  skip (missing): 20260515_192803.mp4
+  skip (missing): 20260515_192843.mp4
+  skip (missing): 20260515_194504.mp4
+  skip (missing): 20260515_194553.mp4
+  skip (missing): 20260515_195645.mp4
+  skip (missing): 20260515_195721.mp4
+  skip (missing): 20260515_192921 (1).mp4
+  skip (missing): 20260513_194532.mp4
+  skip (missing): mp4-2.mp4
+  skip (missing): READme-2
+  skip (missing): READme-3
+  skip (missing): Angular Dependence Study
+  skip (missing): Representative Observations
+  skip (missing): Recommended Usage in README.md
+  skip (missing): 2026_05_16_20_36.mp4
+  skip (missing): image 10.jpg
+  skip (missing): image 11.jpg
+  skip (missing): installment.jpg
+  skip (missing): serpentine_interferometer_ray_diagram.png
+  skip (missing): UV_Contrast_Video1_SatelliteFades.mp4
+  skip (missing): UV_Contrast_Video2_FringeVanish.mp4
+  skip (missing): UV_Contrast_Video3_BeforeAfterUV.mp4
+  skip (missing): UV_Contrast_Video4_CentralOnly.mp4
+  skip (missing): UV_True_Video1_CentralSpotOnly.mp4
+  skip (missing): UV_True_Video2_MobiusLock.mp4
+  skip (missing): UV_Video2_NoFringe.mp4
+  skip (missing): UV_Video3_MobiusEffect.mp4
+  skip (missing): UV_Video4_TransitionLocked.mp4
+  skip (missing): UV_Video5_NoTransition.mp4
+  skip (missing): UV_Video1_StaticSpot (1).mp4
+  skip (missing): UVdist_Video1_PolFilmOnly_Run1.mp4
+  skip (missing): UVdist_Video2_UV50cm_Run1.mp4
+  skip (missing): UVdist_Video3_PolFilmOnly_Run2.mp4
+  skip (missing): UVdist_Video4_UV50cm_Run2.mp4
+  skip (missing): UVdist_Video5_UV25cm_then_50cm.mp4
+  skip (missing): UVdist2_Video1_PolOnly_then_UV50cm.mp4
+  skip (missing): UVdist2_Video2_PolOnly_then_UV25cm.mp4
+  skip (missing): UVdist2_Video3_PolOnly_then_UV50cm.mp4
+  skip (missing): UVdist2_Video4_PolOnly_then_UV25cm.mp4
+  skip (missing): Video3_BeamSplitPattern.mp4
+  skip (missing): Video4_FringeTransition.mp4
+  skip (missing): Video5_SerpentineLoop.mp4
+  skip (missing): Video7_ZAxisRotation.mp4
+  skip (missing): led_panel_6x8_grid.jpg
+  skip (missing): README-input 90 degree.pdf
+git mv -- 20260523_012426.mp4 media/serpentine-laser-array/videos/sessions/20260523/privacy-film/rhombus/privacy_film_rhombus_v1.mp4
+  moved: 20260523_012426.mp4 -> media/serpentine-laser-array/videos/sessions/20260523/privacy-film/rhombus/privacy_film_rhombus_v1.mp4
+git mv -- 20260523_012614.mp4 media/serpentine-laser-array/videos/sessions/20260523/privacy-film/rhombus/privacy_film_rhombus_v4.mp4
+  moved: 20260523_012614.mp4 -> media/serpentine-laser-array/videos/sessions/20260523/privacy-film/rhombus/privacy_film_rhombus_v4.mp4
+git mv -- 20260523_004019 (1).mp4 media/serpentine-laser-array/videos/sessions/20260523/privacy-film/0deg/privacy_film_0deg_v3.mp4
+  moved: 20260523_004019 (1).mp4 -> media/serpentine-laser-array/videos/sessions/20260523/privacy-film/0deg/privacy_film_0deg_v3.mp4
+git mv -- 20260523_012644.mp4 media/serpentine-laser-array/videos/sessions/20260523/privacy-film/rhombus/privacy_film_rhombus_v5.mp4
+  moved: 20260523_012644.mp4 -> media/serpentine-laser-array/videos/sessions/20260523/privacy-film/rhombus/privacy_film_rhombus_v5.mp4
+git mv -- 20260523_004103.mp4 media/serpentine-laser-array/videos/sessions/20260523/privacy-film/0deg/privacy_film_0deg_v4.mp4
+  moved: 20260523_004103.mp4 -> media/serpentine-laser-array/videos/sessions/20260523/privacy-film/0deg/privacy_film_0deg_v4.mp4
+git mv -- 20260523_014328.mp4 media/serpentine-laser-array/videos/sessions/20260523/privacy-film/180deg/privacy_film_180deg_v5.mp4
+  moved: 20260523_014328.mp4 -> media/serpentine-laser-array/videos/sessions/20260523/privacy-film/180deg/privacy_film_180deg_v5.mp4
+git mv -- 20260523_003524 (3).mp4 media/serpentine-laser-array/videos/sessions/20260523/privacy-film/0deg/privacy_film_0deg_v1.mp4
+  moved: 20260523_003524 (3).mp4 -> media/serpentine-laser-array/videos/sessions/20260523/privacy-film/0deg/privacy_film_0deg_v1.mp4
+git mv -- 20260523_014150.mp4 media/serpentine-laser-array/videos/sessions/20260523/privacy-film/180deg/privacy_film_180deg_v2.mp4
+  moved: 20260523_014150.mp4 -> media/serpentine-laser-array/videos/sessions/20260523/privacy-film/180deg/privacy_film_180deg_v2.mp4
+git mv -- 20260523_012509.mp4 media/serpentine-laser-array/videos/sessions/20260523/privacy-film/rhombus/privacy_film_rhombus_v2.mp4
+  moved: 20260523_012509.mp4 -> media/serpentine-laser-array/videos/sessions/20260523/privacy-film/rhombus/privacy_film_rhombus_v2.mp4
+git mv -- 20260523_014223.mp4 media/serpentine-laser-array/videos/sessions/20260523/privacy-film/180deg/privacy_film_180deg_v3.mp4
+  moved: 20260523_014223.mp4 -> media/serpentine-laser-array/videos/sessions/20260523/privacy-film/180deg/privacy_film_180deg_v3.mp4
+git mv -- 20260523_012542.mp4 media/serpentine-laser-array/videos/sessions/20260523/privacy-film/rhombus/privacy_film_rhombus_v3.mp4
+  moved: 20260523_012542.mp4 -> media/serpentine-laser-array/videos/sessions/20260523/privacy-film/rhombus/privacy_film_rhombus_v3.mp4
+git mv -- 20260523_004141 (1).mp4 media/serpentine-laser-array/videos/sessions/20260523/privacy-film/0deg/privacy_film_0deg_v5.mp4
+  moved: 20260523_004141 (1).mp4 -> media/serpentine-laser-array/videos/sessions/20260523/privacy-film/0deg/privacy_film_0deg_v5.mp4
+git mv -- 20260523_014113.mp4 media/serpentine-laser-array/videos/sessions/20260523/privacy-film/180deg/privacy_film_180deg_v1.mp4
+  moved: 20260523_014113.mp4 -> media/serpentine-laser-array/videos/sessions/20260523/privacy-film/180deg/privacy_film_180deg_v1.mp4
+git mv -- 20260523_014253.mp4 media/serpentine-laser-array/videos/sessions/20260523/privacy-film/180deg/privacy_film_180deg_v4.mp4
+  moved: 20260523_014253.mp4 -> media/serpentine-laser-array/videos/sessions/20260523/privacy-film/180deg/privacy_film_180deg_v4.mp4
+git mv -- 20260523_003615.mp4 media/serpentine-laser-array/videos/sessions/20260523/privacy-film/0deg/privacy_film_0deg_v2.mp4
+  moved: 20260523_003615.mp4 -> media/serpentine-laser-array/videos/sessions/20260523/privacy-film/0deg/privacy_film_0deg_v2.mp4
+  skip (missing): READme-privacy 180 degree
+  skip (missing): READme-privacy 90 degree
+  skip (missing): READme-privacy film
+
+Reorganization pass complete. Run: git add -A && git status
+git add -A

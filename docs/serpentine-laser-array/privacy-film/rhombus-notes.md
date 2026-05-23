@@ -1,4 +1,4 @@
-# Laser Mode-Locking Experiment with Privacy Film
+# Laser Mode-Locking Experiment with Privacy Film — Rhombus (마름모)
 
 ## Observation Summary
 
@@ -10,18 +10,14 @@ Contrary to expectations, the privacy film shows **almost no change** even in rh
 
 **Key Advantage**: Privacy film maintains sharp, discrete mode-locked dots across different geometries (0° and rhombus), making it significantly more effective for stable pattern control.
 
-## Files
+## Media
 
-### Privacy Film at 0°
-- `privacy_film_0deg_v1.mp4`
-- `privacy_film_0deg_v2.mp4`
-- `privacy_film_0deg_v3.mp4`
-- `privacy_film_0deg_v4.mp4`
-- `privacy_film_0deg_v5.mp4`
+| File | Original export |
+|------|-----------------|
+| `privacy_film_rhombus_v1.mp4` | `20260523_012426.mp4` |
+| `privacy_film_rhombus_v2.mp4` | `20260523_012509.mp4` |
+| `privacy_film_rhombus_v3.mp4` | `20260523_012542.mp4` |
+| `privacy_film_rhombus_v4.mp4` | `20260523_012614.mp4` |
+| `privacy_film_rhombus_v5.mp4` | `20260523_012644.mp4` |
 
-### Privacy Film in Rhombus Configuration (New)
-- `privacy_film_rhombus_v1.mp4`
-- `privacy_film_rhombus_v2.mp4`
-- `privacy_film_rhombus_v3.mp4`
-- `privacy_film_rhombus_v4.mp4`
-- `privacy_film_rhombus_v5.mp4`
+Path: [`media/serpentine-laser-array/videos/sessions/20260523/privacy-film/rhombus/`](../../../media/serpentine-laser-array/videos/sessions/20260523/privacy-film/rhombus/)

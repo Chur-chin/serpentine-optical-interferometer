@@ -10,10 +10,14 @@ Contrary to initial expectations, the **privacy protection film (사생활보호
 
 **Conclusion**: Privacy film at 0° achieves a much more "mode-locked" and stable regime than general polarizing film, as clearly visible in the experimental footage.
 
-## Files
-- `privacy_film_3524deg_v1.mp4` (or image sequence)
-- `privacy_film_3615deg_v2.mp4`
-- `privacy_film_4019deg_v3.mp4`
-- `privacy_film_4103deg_v4.mp4`
-- `privacy_film_4141deg_v5.mp4`
+## Media
 
+| File | Original export |
+|------|-----------------|
+| `privacy_film_0deg_v1.mp4` | `20260523_003524 (3).mp4` |
+| `privacy_film_0deg_v2.mp4` | `20260523_003615.mp4` |
+| `privacy_film_0deg_v3.mp4` | `20260523_004019 (1).mp4` |
+| `privacy_film_0deg_v4.mp4` | `20260523_004103.mp4` |
+| `privacy_film_0deg_v5.mp4` | `20260523_004141 (1).mp4` |
+
+Path: [`media/serpentine-laser-array/videos/sessions/20260523/privacy-film/0deg/`](../../../media/serpentine-laser-array/videos/sessions/20260523/privacy-film/0deg/)

@@ -28,7 +28,9 @@ media/
 │       └── bench/
 └── serpentine-laser-array/
     ├── videos/                  # 01_ … 22_ curated trials
-    │   └── sessions/20260522/   # repeat-validation exports
+    │   └── sessions/
+    │       ├── 20260522/   # repeat-validation exports (polarizer)
+    │       └── 20260523/   # privacy-film repeat (0° / rhombus / 180°)
     └── images/                  # led_panel_6x8_grid.jpg (if present)
 ```
 

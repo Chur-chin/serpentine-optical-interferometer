@@ -9,7 +9,7 @@ This repository documents three coupled experimental threads: **holoscopic bound
 
 ## Executive summary
 
-A **1×1 serpentine** red-laser array on a diffuse LED panel exhibits **localized discrete mode switching** rather than lattice-wide propagation. Across **22 curated trials** (Sessions 1–5), the primary control variable for dot versus streak output is **input polarizer orientation** (orthogonal → discrete satellites; diamond/45° → pure streaks). **Session 6 (2026-05-22)** adds five repeat-validation clips confirming reproducibility under fixed conditions. Large-array **6×8 collective propagation** remains the next experimental milestone.
+A **1×1 serpentine** red-laser array on a diffuse LED panel exhibits **localized discrete mode switching** rather than lattice-wide propagation. Across **22 curated trials** (Sessions 1–5), the primary control variable for dot versus streak output is **input polarizer orientation** (orthogonal → discrete satellites; diamond/45° → pure streaks). **Session 6 (2026-05-22)** adds five repeat-validation clips confirming reproducibility under fixed polarizer conditions. **Session 7 (2026-05-23)** completes the repeat campaign with **15 privacy-film clips** at three orientations (0°, rhombus, 180°), demonstrating superior discrete mode-locking compared to standard polarizing film in honeycomb geometry. Large-array **6×8 collective propagation** remains the next experimental milestone.
 
 ---
 
@@ -21,18 +21,19 @@ A **1×1 serpentine** red-laser array on a diffuse LED panel exhibits **localize
 │   ├── holoscopic-boundary/           # Near-field interference notes
 │   ├── laser-diffraction-z-rotation/
 │   ├── serpentine-interferometer/     # CAD / bench / notebook
-│   ├── serpentine-laser-array/        # 1×1 array study (detailed index)
+│   ├── serpentine-laser-array/        # 1×1 array study + privacy-film notes
 │   └── manuscripts/                   # Word drafts
 ├── media/                             # Photos and videos (LFS)
 │   ├── holoscopic-boundary/
 │   ├── laser-diffraction-z-rotation/
 │   ├── serpentine-interferometer/
-│   └── serpentine-laser-array/        # Trials 01–22 + 20260522 session
+│   └── serpentine-laser-array/        # Trials 01–22 + session folders
 ├── data/
 │   └── serpentine-laser-array/experiment-summary.csv
 └── scripts/
     ├── reorganize-repo.ps1            # git mv layout (no video deletion)
-    └── apply-repo-layout.ps1
+    ├── apply-repo-layout.ps1
+    └── finalize-and-push.ps1          # pull LFS → reorganize → commit → push
 ```
 
 | Thread | Documentation | Media |
@@ -42,7 +43,13 @@ A **1×1 serpentine** red-laser array on a diffuse LED panel exhibits **localize
 | Serpentine interferometer (CAD) | [`docs/serpentine-interferometer/`](docs/serpentine-interferometer/) | [`media/serpentine-interferometer/`](media/serpentine-interferometer/) |
 | **Serpentine laser array (1×1)** | [`docs/serpentine-laser-array/`](docs/serpentine-laser-array/) | [`media/serpentine-laser-array/`](media/serpentine-laser-array/) |
 
-**Maintenance:** from the repo root, run `.\scripts\reorganize-repo.ps1` (uses GitHub Desktop’s bundled `git.exe` when available). Requires Git LFS: `git lfs install && git lfs pull`.
+**Maintenance:** from the repo root:
+
+```powershell
+.\scripts\finalize-and-push.ps1          # full cleanup + push (GitHub Desktop git)
+.\scripts\reorganize-repo.ps1            # layout only (git mv)
+git lfs install && git lfs pull          # restore large binaries on fresh clone
+```
 
 ---
 
@@ -57,9 +64,11 @@ Machine-readable table: [`data/serpentine-laser-array/experiment-summary.csv`](d
 | 3 | 2026-05 | 11–15 | 5 | Black paper | Fringe suppression independent of surface |
 | 4 | 2026-05 | 16–20 | 5 | Orthogonal input polarizer | **Discrete modes in 1×1** — polarization, not array size |
 | 5 | 2026-05 | 21–22 | 2 | Diamond input; output analyzer | Streak mode vs dot mode; extinction/recovery |
-| **6** | **2026-05-22** | **5 repeat clips** | **5** | **Repeat validation (fixed setup)** | **Reproducibility across back-to-back runs** |
+| 6 | 2026-05-22 | 20260522 session | 5 | Repeat validation (fixed setup) | Reproducibility across back-to-back runs |
+| **7** | **2026-05-23** | **privacy-film 0° / rhombus / 180°** | **15** | **Privacy film vs polarizer** | **Superior discrete mode-locking at all three angles** |
 
-Curated videos: `media/serpentine-laser-array/videos/` · Session 6: `media/serpentine-laser-array/videos/sessions/20260522/`
+Curated videos: `media/serpentine-laser-array/videos/`  
+Session folders: [`20260522/`](media/serpentine-laser-array/videos/sessions/20260522/) · [`20260523/privacy-film/`](media/serpentine-laser-array/videos/sessions/20260523/)
 
 ---
 
@@ -128,6 +137,18 @@ Paths below are under `media/serpentine-laser-array/videos/`.
 
 Five clips in `media/serpentine-laser-array/videos/sessions/20260522/` (export IDs preserved). See [`docs/serpentine-laser-array/README.md`](docs/serpentine-laser-array/README.md).
 
+### Session 7 — Privacy-film repeat validation (2026-05-23)
+
+Fifteen clips in `media/serpentine-laser-array/videos/sessions/20260523/privacy-film/` organized as:
+
+| Subfolder | Files | Finding |
+|-----------|-------|---------|
+| `0deg/` | `privacy_film_0deg_v1..v5.mp4` | Extremely static single-dot mode-locking; brief v3 cluster then recovery |
+| `rhombus/` | `privacy_film_rhombus_v1..v5.mp4` | Sharp discrete dots with minimal diffusion vs polarizing film |
+| `180deg/` | `privacy_film_180deg_v1..v5.mp4` | Highly stable discrete patterns at 180° |
+
+Notes: [`docs/serpentine-laser-array/privacy-film/`](docs/serpentine-laser-array/privacy-film/) · Session index: [`media/.../20260523/README.md`](media/serpentine-laser-array/videos/sessions/20260523/README.md)
+
 ---
 
 ## Technical notes
@@ -137,6 +158,7 @@ Five clips in `media/serpentine-laser-array/videos/sessions/20260522/` (export I
 | Camera | 1920×1080 @ ~30 fps (original) |
 | Panel | Diffuse white LED / acrylic diffuser; black-paper and dark-field variants |
 | Laser | Red ~650 nm, single-point source |
+| Films tested | Standard polarizing film; privacy protection film (사생활보호필름) |
 | GitHub export | 960×540, H.264 CRF 28, 15 fps (target &lt;2 MB/file where compressed) |
 
 ---
@@ -154,16 +176,18 @@ The 1×1 serpentine behaves as **localized mode switching**: short coupling path
 | Orthogonal polarizer → discrete 1×1 modes | **Confirmed ✅** |
 | Diamond input → streak-only mode | Confirmed ✅ |
 | Output analyzer extinction/recovery | Confirmed ✅ |
-| Repeat validation (Session 6) | **Recorded ✅** |
+| Repeat validation — polarizer (Session 6) | **Recorded ✅** |
+| Repeat validation — privacy film (Session 7) | **Recorded ✅** |
+| Privacy film superior mode-lock (0° / rhombus / 180°) | **Confirmed ✅** |
 | 6×8 collective propagation | Pending ❌ |
 
-**Conclusion:** Input polarizer orientation is the primary mode selector. **6×8 expansion** is required for large-scale collective effects. Supplementary Savart-plate discussion and 0° vs 90° notes: [`docs/serpentine-laser-array/polarizer-input-90deg-notes.pdf`](docs/serpentine-laser-array/polarizer-input-90deg-notes.pdf).
+**Conclusion:** Input film type and polarizer orientation are the primary mode selectors. Privacy protection film yields **sharper, more stable discrete dots** in honeycomb geometry across 0°, rhombus, and 180° orientations. Standard polarizing film remains preferable for open serpentine structures. **6×8 expansion** is required for large-scale collective effects. Supplementary Savart-plate discussion: [`docs/serpentine-laser-array/polarizer-input-90deg-notes.pdf`](docs/serpentine-laser-array/polarizer-input-90deg-notes.pdf).
 
 ---
 
 ## Why 0° vs 90° input polarizer produces different modes
 
-A Savart plate’s fast/slow axes interact with input polarization angle. Near **90°**, o- and e-ray amplitudes tend toward balance and **streak/fringe** character strengthens; near **0°**, **discrete dot** character is relatively preserved. This matches the orthogonal (Session 4) versus diamond streak (Session 5) dichotomy in the curated trials.
+A Savart plate’s fast/slow axes interact with input polarization angle. Near **90°**, o- and e-ray amplitudes tend toward balance and **streak/fringe** character strengthens; near **0°**, **discrete dot** character is relatively preserved. This matches the orthogonal (Session 4) versus diamond streak (Session 5) dichotomy in the curated trials. Privacy film (Session 7) suppresses diffuse spreading, further stabilizing discrete dots at all tested angles.
 
 ---
 

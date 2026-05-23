@@ -33,7 +33,11 @@ $dirs = @(
     "media/serpentine-interferometer/images/bench",
     "media/serpentine-laser-array/videos",
     "media/serpentine-laser-array/videos/sessions/20260522",
+    "media/serpentine-laser-array/videos/sessions/20260523/privacy-film/0deg",
+    "media/serpentine-laser-array/videos/sessions/20260523/privacy-film/rhombus",
+    "media/serpentine-laser-array/videos/sessions/20260523/privacy-film/180deg",
     "media/serpentine-laser-array/images",
+    "docs/serpentine-laser-array/privacy-film",
     "docs/serpentine-laser-array",
     "data/serpentine-laser-array"
 )
@@ -270,6 +274,36 @@ Get-ChildItem -Path $root -Filter "20260522-*.mp4" -File -ErrorAction SilentlyCo
 Git-MvIfExists -Root $root `
     -SrcRel "README-input 90 degree.pdf" `
     -DstRel "docs/serpentine-laser-array/polarizer-input-90deg-notes.pdf" | Out-Null
+
+# 2026-05-23 privacy-film repeat session (15 clips at repo root -> descriptive names; git mv only)
+@{
+    "20260523_003524 (3).mp4" = "media/serpentine-laser-array/videos/sessions/20260523/privacy-film/0deg/privacy_film_0deg_v1.mp4"
+    "20260523_003615.mp4"     = "media/serpentine-laser-array/videos/sessions/20260523/privacy-film/0deg/privacy_film_0deg_v2.mp4"
+    "20260523_004019 (1).mp4" = "media/serpentine-laser-array/videos/sessions/20260523/privacy-film/0deg/privacy_film_0deg_v3.mp4"
+    "20260523_004103.mp4"     = "media/serpentine-laser-array/videos/sessions/20260523/privacy-film/0deg/privacy_film_0deg_v4.mp4"
+    "20260523_004141 (1).mp4" = "media/serpentine-laser-array/videos/sessions/20260523/privacy-film/0deg/privacy_film_0deg_v5.mp4"
+    "20260523_012426.mp4"     = "media/serpentine-laser-array/videos/sessions/20260523/privacy-film/rhombus/privacy_film_rhombus_v1.mp4"
+    "20260523_012509.mp4"     = "media/serpentine-laser-array/videos/sessions/20260523/privacy-film/rhombus/privacy_film_rhombus_v2.mp4"
+    "20260523_012542.mp4"     = "media/serpentine-laser-array/videos/sessions/20260523/privacy-film/rhombus/privacy_film_rhombus_v3.mp4"
+    "20260523_012614.mp4"     = "media/serpentine-laser-array/videos/sessions/20260523/privacy-film/rhombus/privacy_film_rhombus_v4.mp4"
+    "20260523_012644.mp4"     = "media/serpentine-laser-array/videos/sessions/20260523/privacy-film/rhombus/privacy_film_rhombus_v5.mp4"
+    "20260523_014113.mp4"     = "media/serpentine-laser-array/videos/sessions/20260523/privacy-film/180deg/privacy_film_180deg_v1.mp4"
+    "20260523_014150.mp4"     = "media/serpentine-laser-array/videos/sessions/20260523/privacy-film/180deg/privacy_film_180deg_v2.mp4"
+    "20260523_014223.mp4"     = "media/serpentine-laser-array/videos/sessions/20260523/privacy-film/180deg/privacy_film_180deg_v3.mp4"
+    "20260523_014253.mp4"     = "media/serpentine-laser-array/videos/sessions/20260523/privacy-film/180deg/privacy_film_180deg_v4.mp4"
+    "20260523_014328.mp4"     = "media/serpentine-laser-array/videos/sessions/20260523/privacy-film/180deg/privacy_film_180deg_v5.mp4"
+}.GetEnumerator() | ForEach-Object {
+    Git-MvIfExists -Root $root -SrcRel $_.Key -DstRel $_.Value | Out-Null
+}
+
+# Privacy-film observation notes (root READme-* -> docs)
+@{
+    "READme-privacy film"      = "docs/serpentine-laser-array/privacy-film/0deg-notes.md"
+    "READme-privacy 90 degree" = "docs/serpentine-laser-array/privacy-film/rhombus-notes.md"
+    "READme-privacy 180 degree" = "docs/serpentine-laser-array/privacy-film/180deg-notes.md"
+}.GetEnumerator() | ForEach-Object {
+    Git-MvIfExists -Root $root -SrcRel $_.Key -DstRel $_.Value | Out-Null
+}
 
 Write-Host ""
 Write-Host "Reorganization pass complete. Run: git add -A && git status" -ForegroundColor Yellow
